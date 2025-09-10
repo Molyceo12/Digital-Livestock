@@ -7,11 +7,13 @@ import cowsRoutes from './routes/cows';
 import  categoriesRoutes from './routes/category';
 import cartRoutes from './routes/cart';
 import orderRoutes from './routes/orders';
+import cors from "cors";
 
 
 const app = express();
 const port = config.port;
 
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use("/user", userRoutes);
 app.use("/api", cowsRoutes);
